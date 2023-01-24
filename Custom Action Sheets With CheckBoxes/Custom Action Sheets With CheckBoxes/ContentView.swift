@@ -9,10 +9,20 @@ import MapKit
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.028511, longitude: 105.804817),
+                                                   span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+    
     var body: some View {
 
-   Text("fff")
-    
+        Map(coordinateRegion: $region)
+            .ignoresSafeArea()
+        
+        Button (action: {}, label: {
+            
+            Image(systemName: "")
+            
+        })
     }
 }
 
@@ -22,17 +32,10 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct CheckBox: View {
+struct FilterItem: Identifiable {
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.028511, longitude: 105.804817),
-                                                   span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+    var id = UUID().uuidString
+    var title: String
+    var checked: Bool
     
-    var bady: some View {
-        
-        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
-            
-            Map(coordinateRegion: $region)
-                .ignoresSafeArea()
-        })
-    }
 }
