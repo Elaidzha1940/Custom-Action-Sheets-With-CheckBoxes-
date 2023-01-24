@@ -22,4 +22,15 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct 
+struct CheckBox: View {
+    
+    @State var coordinate = MKCoordinateRegion(center: CCLocationCoordinate2D(latitude: 21.028511, longitude: 105.804817), latitudianalMeters: 10000, longtitudianalMeters: 10000 )
+    
+    var body: some View {
+        
+        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
+            
+            Map(coordinateRegion:
+        }
+    }
+}
