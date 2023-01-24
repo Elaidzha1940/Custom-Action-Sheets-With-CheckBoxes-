@@ -5,14 +5,14 @@
 //  Created by Elaidzha Shchukin on 24.01.2023.
 //
 
+import MapKit
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            
-            Text("Hello, world!")
-        }
+
+   Text("fff")
+    
     }
 }
 
@@ -24,13 +24,15 @@ struct ContentView_Previews: PreviewProvider {
 
 struct CheckBox: View {
     
-    @State var coordinate = MKCoordinateRegion(center: CCLocationCoordinate2D(latitude: 21.028511, longitude: 105.804817), latitudianalMeters: 10000, longtitudianalMeters: 10000 )
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.028511, longitude: 105.804817),
+                                                   span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
-    var body: some View {
+    var bady: some View {
         
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
             
-            Map(coordinateRegion:
-        }
+            Map(coordinateRegion: $region)
+                .ignoresSafeArea()
+        })
     }
 }
