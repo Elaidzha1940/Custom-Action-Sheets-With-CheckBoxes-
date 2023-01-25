@@ -46,8 +46,38 @@ struct ContentView: View {
             })
             .padding(.trailing)
             .padding(.top, -10)
+            
+            VStack {
+                
+                Spacer()
+                
+                VStack(spacing: 18) {
+                    
+                    HStack {
+                        
+                        Text("Search by")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                        
+                        Spacer()
+                        
+                        Button (action: {}, label: {
+                            Text("Done")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.green)
+                        })
+                    }
+                    .padding([.horizontal, .top])
+                    .padding(.bottom, 10)
+                    
+                    ForEach(filters) { filter in
+                        
+                        Text(filter.title)
+                    }
+                }
+                .background(Color.white)
+            }
         })
-        
     }
 }
 
