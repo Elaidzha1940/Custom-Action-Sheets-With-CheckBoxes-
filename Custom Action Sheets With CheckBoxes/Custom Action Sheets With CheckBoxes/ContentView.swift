@@ -13,16 +13,41 @@ struct ContentView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.028511, longitude: 105.804817),
                                                    span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
+    @State var filters = [
+        
+        FilterItem(title: "ff", checked: false),
+        FilterItem(title: "ff", checked: false),
+        FilterItem(title: "ff", checked: false),
+        FilterItem(title: "ff", checked: false),
+        FilterItem(title: "ff", checked: false),
+    ]
+    
     var body: some View {
 
-        Map(coordinateRegion: $region)
-            .ignoresSafeArea()
-        
-        Button (action: {}, label: {
+        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top),
+               content: {
             
-            Image(systemName: "")
+            Map(coordinateRegion: $region)
+                .ignoresSafeArea()
             
+            Button (action: {}, label: {
+                
+                Image(systemName: "slider.vertical.3")
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 15)
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: -5, y: -5)
+                
+                
+            })
+            .padding(.trailing)
+            .padding(.top, -10)
         })
+        
     }
 }
 
@@ -39,3 +64,12 @@ struct FilterItem: Identifiable {
     var checked: Bool
     
 }
+
+var filters = [
+
+    FilterItem(title: "", checked: false),
+    FilterItem(title: "", checked: false),
+    FilterItem(title: "", checked: false),
+    FilterItem(title: "", checked: false),
+    FilterItem(title: "", checked: false),
+]
