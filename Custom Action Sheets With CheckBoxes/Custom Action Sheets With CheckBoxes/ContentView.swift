@@ -22,6 +22,8 @@ struct ContentView: View {
         FilterItem(title: "ff", checked: false),
     ]
     
+    @State var edges = UIApplication.shared.windows.first?.safeAreaInsets
+    
     var body: some View {
 
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top),
@@ -57,13 +59,14 @@ struct ContentView: View {
                         
                         Text("Search by")
                             .font(.title2)
+                            .fontWeight(.heavy)
                             .foregroundColor(.black)
                         
                         Spacer()
                         
                         Button (action: {}, label: {
                             Text("Done")
-                                .fontWeight(.bold)
+                                .fontWeight(.heavy)
                                 .foregroundColor(Color.green)
                         })
                     }
@@ -75,8 +78,11 @@ struct ContentView: View {
                         ListView(filter: filter)
                     }
                 }
+                .padding(.bottom, 10)
+                .padding(.bottom, edges?.bottom)
                 .background(Color.white)
             }
+            .ignoresSafeArea()
         })
     }
 }
