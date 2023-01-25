@@ -84,6 +84,11 @@ struct ContentView: View {
                 .background(Color.white.clipShape(CustomCorner(corners: [.topLeft, .topRight])))
             }
             .ignoresSafeArea()
+            .background(
+            
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+            )
         })
     }
 }
@@ -117,12 +122,23 @@ struct ListView: View {
             ZStack {
                 
                 Rectangle()
-                    .stroke(Color.brown, lineWidth: 1)
+                    .stroke(filter.checked ? Color.green : Color.brown, lineWidth: 1)
                     .frame(width: 30, height: 30)
                     .cornerRadius(10)
+                
+                if filter.checked {
+                    
+                    Image(systemName: "checkmark.square.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(Color.green)
+                }
             }
         }
         .padding(.horizontal)
+        .onTapGesture(perform: {
+            
+            filter.checked.toggle()
+        })
     }
 }
 
@@ -148,3 +164,4 @@ var filters = [
     FilterItem(title: "", checked: false),
     FilterItem(title: "", checked: false),
 ]
+
