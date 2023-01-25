@@ -15,11 +15,14 @@ struct ContentView: View {
     
     @State var filters = [
         
-        FilterItem(title: "ff", checked: false),
-        FilterItem(title: "ff", checked: false),
-        FilterItem(title: "ff", checked: false),
-        FilterItem(title: "ff", checked: false),
-        FilterItem(title: "ff", checked: false),
+        FilterItem(title: "St. Joseph's Cathedral of Hanoi", checked: false),
+        FilterItem(title: "Hoan Kiem Lake", checked: false),
+        FilterItem(title: " Ho Chi Minh Mausoleum", checked: false),
+        FilterItem(title: "Thang Long Water Puppet Theater", checked: false),
+        FilterItem(title: "St. Joseph's Cathedral of Hanoi", checked: false),
+        FilterItem(title: "Thang Long Imperial Citadel", checked: false),
+        FilterItem(title: "Dong Xuan Market", checked: false),
+        
     ]
     
     @State var edges = UIApplication.shared.windows.first?.safeAreaInsets
@@ -96,6 +99,10 @@ struct ContentView: View {
                 Color.black.opacity(0.3)
                     .ignoresSafeArea()
                     .opacity(showFilter ? 1 : 0)
+                    .onTapGesture(perform: {
+                        
+                        withAnimation{showFilter.toggle()}
+                    })
             )
         })
     }
