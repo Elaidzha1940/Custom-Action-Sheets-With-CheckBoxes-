@@ -67,7 +67,7 @@ struct ContentView: View {
                         Text("Search by")
                             .font(.title2)
                             .fontWeight(.heavy)
-                            .foregroundColor(.black)
+                            .foregroundColor(.green)
                         
                         Spacer()
                         
@@ -114,7 +114,7 @@ struct CustomCorner: Shape {
     
     func path(in rect: CGRect) -> Path {
         
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 35, height: 35))
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 25, height: 25))
         
         return Path(path.cgPath)
     }
@@ -129,8 +129,8 @@ struct ListView: View {
         HStack {
             
             Text(filter.title)
-                .fontWeight(.semibold)
-                .foregroundColor(Color.black.opacity(0.7))
+                .fontWeight(.medium)
+                .foregroundColor(Color.white.opacity(0.7))
             
             Spacer()
             
@@ -138,7 +138,7 @@ struct ListView: View {
                 
                 Rectangle()
                     .stroke(filter.checked ? Color.white : Color.white, lineWidth: 1)
-                    .frame(width: 30, height: 30)
+                    .frame(width: 25, height: 25)
                     .cornerRadius(10)
                 
                 if filter.checked {
