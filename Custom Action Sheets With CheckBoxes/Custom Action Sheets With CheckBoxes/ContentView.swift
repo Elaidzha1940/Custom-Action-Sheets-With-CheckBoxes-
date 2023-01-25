@@ -24,6 +24,8 @@ struct ContentView: View {
     
     @State var edges = UIApplication.shared.windows.first?.safeAreaInsets
     
+    @State var showFilter = false
+    
     var body: some View {
 
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top),
@@ -32,7 +34,9 @@ struct ContentView: View {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
             
-            Button (action: {}, label: {
+            Button (action: {
+                withAnimation{showFilter.toggle()}
+            }, label: {
                 
                 Image(systemName: "slider.vertical.3")
                     .font(.title2)
@@ -122,19 +126,20 @@ struct ListView: View {
             ZStack {
                 
                 Rectangle()
-                    .stroke(filter.checked ? Color.green : Color.green, lineWidth: 1)
+                    .stroke(filter.checked ? Color.brown : Color.brown, lineWidth: 1)
                     .frame(width: 30, height: 30)
-                  //  .cornerRadius(10)
+                    .cornerRadius(10)
                 
                 if filter.checked {
                     
                     Image(systemName: "checkmark.square.fill")
                         .font(.system(size: 30))
-                        .foregroundColor(Color.green)
+                        .foregroundColor(Color.brown)
                 }
             }
         }
         .padding(.horizontal)
+        .contentShape(Rectangle())
         .onTapGesture(perform: {
             
             filter.checked.toggle()
