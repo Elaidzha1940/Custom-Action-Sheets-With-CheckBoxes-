@@ -122,9 +122,9 @@ struct ListView: View {
             ZStack {
                 
                 Rectangle()
-                    .stroke(filter.checked ? Color.green : Color.brown, lineWidth: 1)
+                    .stroke(filter.checked ? Color.green : Color.green, lineWidth: 1)
                     .frame(width: 30, height: 30)
-                    .cornerRadius(10)
+                  //  .cornerRadius(10)
                 
                 if filter.checked {
                     
