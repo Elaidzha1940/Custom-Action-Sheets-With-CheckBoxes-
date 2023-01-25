@@ -72,7 +72,7 @@ struct ContentView: View {
                     
                     ForEach(filters) { filter in
                         
-                        Text(filter.title)
+                        ListView(filter: filter)
                     }
                 }
                 .background(Color.white)
@@ -83,7 +83,7 @@ struct ContentView: View {
 
 struct ListView: View {
     
-    @State var filters: FilterItem
+    @State var filter: FilterItem
     
     var body: some View {
         
@@ -97,8 +97,13 @@ struct ListView: View {
             
             ZStack {
                 
+                Rectangle()
+                    .stroke(Color.brown, lineWidth: 1)
+                    .frame(width: 30, height: 30)
+                    .cornerRadius(10)
             }
         }
+        .padding(.horizontal)
     }
 }
 
