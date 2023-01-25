@@ -81,6 +81,27 @@ struct ContentView: View {
     }
 }
 
+struct ListView: View {
+    
+    @State var filters: FilterItem
+    
+    var body: some View {
+        
+        HStack {
+            
+            Text(filter.title)
+                .fontWeight(.semibold)
+                .foregroundColor(Color.black.opacity(0.7))
+            
+            Spacer()
+            
+            ZStack {
+                
+            }
+        }
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
