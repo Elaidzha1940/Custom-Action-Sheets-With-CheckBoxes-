@@ -80,7 +80,8 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 10)
                 .padding(.bottom, edges?.bottom)
-                .background(Color.white)
+                .padding(.top, 10)
+                .background(Color.white.clipShape(CustomCorner(corners: [.topLeft, .topRight])))
             }
             .ignoresSafeArea()
         })
@@ -95,6 +96,7 @@ struct CustomCorner: Shape {
         
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 35, height: 35))
         
+        return Path(path.cgPath)
     }
 }
 
