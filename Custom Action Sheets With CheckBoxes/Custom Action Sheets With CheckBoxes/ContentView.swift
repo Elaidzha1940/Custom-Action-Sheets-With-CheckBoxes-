@@ -68,7 +68,9 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        Button (action: {}, label: {
+                        Button (action: {
+                            withAnimation{showFilter.toggle()}
+                        }, label: {
                             Text("Done")
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color.green)
@@ -85,13 +87,15 @@ struct ContentView: View {
                 .padding(.bottom, 10)
                 .padding(.bottom, edges?.bottom)
                 .padding(.top, 10)
-                .background(Color.white.clipShape(CustomCorner(corners: [.topLeft, .topRight])))
+                .background(Color.black.opacity(0.5).clipShape(CustomCorner(corners: [.topLeft, .topRight])))
+                .offset(y: showFilter ? 0: UIScreen.main.bounds.height / 2)
             }
             .ignoresSafeArea()
             .background(
             
                 Color.black.opacity(0.3)
                     .ignoresSafeArea()
+                    .opacity(showFilter ? 1 : 0)
             )
         })
     }
@@ -126,7 +130,7 @@ struct ListView: View {
             ZStack {
                 
                 Rectangle()
-                    .stroke(filter.checked ? Color.brown : Color.brown, lineWidth: 1)
+                    .stroke(filter.checked ? Color.white : Color.white, lineWidth: 1)
                     .frame(width: 30, height: 30)
                     .cornerRadius(10)
                 
@@ -134,7 +138,7 @@ struct ListView: View {
                     
                     Image(systemName: "checkmark.square.fill")
                         .font(.system(size: 30))
-                        .foregroundColor(Color.brown)
+                        .foregroundColor(Color.white)
                 }
             }
         }
